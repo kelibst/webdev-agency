@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@custom-vaiant: dark(&:where([data-theme='dark'])) light(&:where([data-theme='light']));
+
 @layer base {
   h1,
   h2,

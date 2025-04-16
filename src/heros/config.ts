@@ -1,6 +1,7 @@
 import type { Field } from 'payload'
 
 import {
+  AlignFeature,
   FixedToolbarFeature,
   HeadingFeature,
   InlineToolbarFeature,
@@ -48,10 +49,27 @@ export const hero: Field = {
             HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
             FixedToolbarFeature(),
             InlineToolbarFeature(),
+            AlignFeature(),
           ]
         },
       }),
       label: false,
+    },
+    {
+      name: 'subTagline',
+      type: 'text',
+      label: 'Sub Tagline (Optional)',
+    },
+    {
+      name: 'title',
+      type: 'text',
+      label: 'Title',
+      required: true,
+    },
+    {
+      name: 'highlightText',
+      type: 'text',
+      label: 'Highlight Text (Optional)',
     },
     linkGroup({
       overrides: {

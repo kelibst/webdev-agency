@@ -48,18 +48,67 @@ export const CMSLink: React.FC<CMSLinkType> = (props) => {
   /* Ensure we don't break any styles set by richText */
   if (appearance === 'inline') {
     return (
-      <Link className={cn(className)} href={href || url || ''} {...newTabProps}>
-        {label && label}
-        {children && children}
+      <Link className={cn('group', className)} href={href || url || ''} {...newTabProps}>
+        <span className="relative inline-block overflow-hidden">
+          <span className="block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">
+            {label && label}
+            {children && children}
+          </span>
+          <span className="absolute inset-0 block transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
+            {label && label}
+            {children && children}
+          </span>
+        </span>
       </Link>
     )
   }
 
+  if (appearance === 'outline') {
+    return (
+      <Button
+        asChild
+        className={cn('group', className, 'rounded-xl')}
+        size={size}
+        variant={appearance}
+      >
+        <Link
+          className={cn('relative overflow-hidden', className)}
+          href={href || url || ''}
+          {...newTabProps}
+        >
+          <span className="block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">
+            {label && label}
+            {children && children}
+          </span>
+          <span className="absolute inset-0 block transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
+            {label && label}
+            {children && children}
+          </span>
+        </Link>
+      </Button>
+    )
+  }
+
   return (
-    <Button asChild className={className} size={size} variant={appearance}>
-      <Link className={cn(className)} href={href || url || ''} {...newTabProps}>
-        {label && label}
-        {children && children}
+    <Button
+      asChild
+      className={cn('group', className, 'rounded-xl')}
+      size={size}
+      variant={appearance}
+    >
+      <Link
+        className={cn('relative overflow-hidden', className)}
+        href={href || url || ''}
+        {...newTabProps}
+      >
+        <span className="block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">
+          {label && label}
+          {children && children}
+        </span>
+        <span className="absolute inset-0 block transition-transform duration-300 ease-in-out translate-y-full group-hover:translate-y-0">
+          {label && label}
+          {children && children}
+        </span>
       </Link>
     </Button>
   )

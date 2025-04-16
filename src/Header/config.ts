@@ -27,6 +27,20 @@ export const Header: GlobalConfig = {
         },
       },
     },
+    {
+      name: 'logoImage',
+      type: 'upload',
+      label: 'business image',
+      relationTo: 'media',
+      required: false,
+    },
+    {
+      name: 'siteName',
+      label: 'Site Name',
+      type: 'text',
+      required: true,
+      defaultValue: 'Lilies Tech zone',
+    },
   ],
   hooks: {
     afterChange: [revalidateHeader],
